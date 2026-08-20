@@ -1,0 +1,458 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Our Little Space ❤️</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            margin: 0;
+            min-height: 100vh;
+            font-family: Arial, sans-serif;
+            background: linear-gradient(135deg, #ffd6e8, #fff0f7);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            overflow-x: hidden;
+            overflow-y: auto;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 430px;
+            padding: 35px 0;
+            position: relative;
+            z-index: 2;
+        }
+
+        .heart {
+            font-size: 75px;
+            animation: beat 1s infinite;
+        }
+
+        h1 {
+            color: #ff3f7f;
+            font-size: 34px;
+            margin: 12px;
+        }
+
+        h2 {
+            color: #ff3f7f;
+        }
+
+        p {
+            color: #555;
+            font-size: 18px;
+            line-height: 1.6;
+        }
+
+        button {
+            margin-top: 20px;
+            padding: 14px 28px;
+            border: none;
+            border-radius: 30px;
+            background: #ff4f91;
+            color: white;
+            font-size: 18px;
+            box-shadow: 0 6px 15px #ffb3cd;
+            cursor: pointer;
+            transition: 0.2s;
+        }
+
+        button:active {
+            transform: scale(0.94);
+        }
+
+        .card {
+            display: none;
+            margin-top: 25px;
+            padding: 25px 20px;
+            background: rgba(255,255,255,0.82);
+            border-radius: 25px;
+            box-shadow: 0 8px 25px rgba(255,100,150,0.15);
+            animation: appear 0.7s ease;
+        }
+
+        .big-heart {
+            font-size: 65px;
+            animation: beat 1s infinite;
+        }
+
+        .final-heart {
+            font-size: 90px;
+            animation: heartbeat 1.2s infinite;
+        }
+
+        .small-text {
+            font-size: 15px;
+            color: #888;
+        }
+
+        .music-button {
+            position: fixed;
+            top: 15px;
+            right: 15px;
+            z-index: 10;
+            margin: 0;
+            padding: 10px 15px;
+            font-size: 15px;
+        }
+
+        .restart {
+            background: #ff78a9;
+        }
+
+        .floating {
+            position: fixed;
+            bottom: -50px;
+            pointer-events: none;
+            z-index: 1;
+            animation: floatUp linear forwards;
+        }
+
+        .sparkle {
+            position: fixed;
+            pointer-events: none;
+            z-index: 1;
+            animation: sparkleMove 4s linear infinite;
+        }
+
+        @keyframes beat {
+            0%, 100% {
+                transform: scale(1);
+            }
+
+            50% {
+                transform: scale(1.15);
+            }
+        }
+
+        @keyframes heartbeat {
+            0%, 100% {
+                transform: scale(1);
+            }
+
+            25% {
+                transform: scale(1.2);
+            }
+
+            40% {
+                transform: scale(1);
+            }
+
+            60% {
+                transform: scale(1.15);
+            }
+        }
+
+        @keyframes appear {
+            from {
+                opacity: 0;
+                transform: translateY(25px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes floatUp {
+            from {
+                transform: translateY(0) rotate(0deg);
+                opacity: 1;
+            }
+
+            to {
+                transform: translateY(-110vh) rotate(360deg);
+                opacity: 0;
+            }
+        }
+
+        @keyframes sparkleMove {
+            from {
+                transform: translateY(100vh);
+                opacity: 0;
+            }
+
+            25% {
+                opacity: 1;
+            }
+
+            to {
+                transform: translateY(-10vh);
+                opacity: 0;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <button class="music-button" onclick="toggleMusic()">
+        🎵 Music
+    </button>
+
+    <div class="sparkle" style="left:10%; animation-delay:0s;">✨</div>
+    <div class="sparkle" style="left:30%; animation-delay:1s;">💗</div>
+    <div class="sparkle" style="left:60%; animation-delay:2s;">✨</div>
+    <div class="sparkle" style="left:85%; animation-delay:0.5s;">💕</div>
+
+    <div class="container">
+
+        <div class="heart">❤️</div>
+
+        <h1>Hey You 👀</h1>
+
+        <p>
+            I made this little place<br>
+            just for you.
+        </p>
+
+        <button onclick="showCard('surprise')">
+            Open Your Surprise 💌
+        </button>
+
+
+        <div id="surprise" class="card">
+
+            <h2>✨ Surprise ✨</h2>
+
+            <p>
+                You found it! ❤️
+                <br><br>
+                This tiny little app exists
+                <br>
+                just to make you smile. 🥹
+            </p>
+
+            <button onclick="showCard('secondSurprise')">
+                One More? 👀
+            </button>
+
+        </div>
+
+
+        <div id="secondSurprise" class="card">
+
+            <div class="big-heart">💗</div>
+
+            <h2>Okay... One More 🥹</h2>
+
+            <p>
+                You actually clicked it.
+                <br><br>
+                I knew you would. 😂❤️
+            </p>
+
+            <button onclick="showCard('thirdSurprise')">
+                There's More? 👀
+            </button>
+
+        </div>
+
+
+        <div id="thirdSurprise" class="card">
+
+            <div class="big-heart">💕</div>
+
+            <h2>Maybe... 👀</h2>
+
+            <p>
+                Okay, you've officially reached
+                <br>
+                the secret level. 🔐✨
+                <br><br>
+                But there's only one way
+                <br>
+                to find out what's next.
+            </p>
+
+            <button onclick="showFinal()">
+                Open The Final Surprise 💖
+            </button>
+
+        </div>
+
+
+        <div id="finalSurprise" class="card">
+
+            <div class="final-heart">❤️</div>
+
+            <h2>You Made It 🥹</h2>
+
+            <p>
+                Out of everything in this little app,
+                <br>
+                this part is my favourite.
+                <br><br>
+                Not because it's fancy.
+                <br>
+                Not because it's perfect.
+                <br><br>
+                But because I made this tiny place
+                <br>
+                hoping it would make you smile. ❤️
+            </p>
+
+            <p>
+                And if you're smiling right now...
+                <br>
+                then it worked. 🫶
+            </p>
+
+            <button class="restart" onclick="restartApp()">
+                Start Again 🔄
+            </button>
+
+            <p class="small-text">
+                P.S. You really clicked every button. 😂
+            </p>
+
+        </div>
+
+    </div>
+
+
+    <script>
+
+        function showCard(cardId) {
+
+            document.getElementById(cardId).style.display = "block";
+
+            setTimeout(function() {
+                document.getElementById(cardId).scrollIntoView({
+                    behavior: "smooth",
+                    block: "center"
+                });
+            }, 100);
+
+            createHearts();
+        }
+
+
+        function showFinal() {
+
+            document.getElementById("finalSurprise").style.display = "block";
+
+            createLotsOfHearts();
+
+            setTimeout(function() {
+                document.getElementById("finalSurprise").scrollIntoView({
+                    behavior: "smooth",
+                    block: "center"
+                });
+            }, 100);
+        }
+
+
+        function createHearts() {
+
+            const hearts = ["❤️", "💗", "💕", "💖", "💓"];
+
+            for (let i = 0; i < 8; i++) {
+
+                const heart = document.createElement("div");
+
+                heart.className = "floating";
+
+                heart.innerHTML =
+                    hearts[Math.floor(Math.random() * hearts.length)];
+
+                heart.style.left =
+                    Math.random() * 100 + "vw";
+
+                heart.style.fontSize =
+                    (18 + Math.random() * 20) + "px";
+
+                heart.style.animationDuration =
+                    (4 + Math.random() * 4) + "s";
+
+                document.body.appendChild(heart);
+
+                setTimeout(function() {
+                    heart.remove();
+                }, 8000);
+            }
+        }
+
+
+        function createLotsOfHearts() {
+
+            const hearts = [
+                "❤️",
+                "💗",
+                "💕",
+                "💖",
+                "💓",
+                "✨"
+            ];
+
+            for (let i = 0; i < 25; i++) {
+
+                const heart = document.createElement("div");
+
+                heart.className = "floating";
+
+                heart.innerHTML =
+                    hearts[Math.floor(Math.random() * hearts.length)];
+
+                heart.style.left =
+                    Math.random() * 100 + "vw";
+
+                heart.style.fontSize =
+                    (18 + Math.random() * 28) + "px";
+
+                heart.style.animationDuration =
+                    (3 + Math.random() * 5) + "s";
+
+                document.body.appendChild(heart);
+
+                setTimeout(function() {
+                    heart.remove();
+                }, 9000);
+            }
+        }
+
+
+        function restartApp() {
+
+            location.reload();
+
+        }
+
+
+        let musicOn = false;
+
+        function toggleMusic() {
+
+            musicOn = !musicOn;
+
+            if (musicOn) {
+
+                alert(
+                    "🎵 Music feature ready! Add your own audio file later ❤️"
+                );
+
+            } else {
+
+                alert("🎵 Music turned off.");
+
+            }
+        }
+
+    </script>
+
+</body>
+      </html>
